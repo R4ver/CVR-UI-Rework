@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --wrapper-background: transparent;
+    --element-background: #292929;
+    --element-hover: #525252;
+    --color-confirm: #37BD3C;
+    --color-deny: #C41F1F;
+    --color-secondary: #ABABAB;
+    --color-btn: #323232;
+    --color-btn-warn: #C58F05;
+    --color-btn-secondary: #6B6B6B;
+    --color-btn-primary: #1664BE;
+    --color-btn-border: #FFFFFF;
+    --color-btn-text: #FFFFFF;
+
+    --standard-text-color: #D2D2D2;
+    --standard-font-family: Droid Sans;
+    --font-size-nrm: 24px;
+    --font-size-big: 36px;
+    --font-size-bigger: 48px;
+    --font-size-biggest: 58px;
+    --font-color-dark: #4A4A4A;
+
+    --container-border-radius: 10px;
+    --button-border-radius: 10px;
+
+    --home-background: #333333;
+    --panel-border-color: #1664BE;
+    --panel-sub-border-color: rgba(0, 0, 0, 0.25);
+    --panel-font-color: #e4e4e4;
+    --panel-sub-font-color: #DCDCDC99;
+}
+
+#quickmenu-wrapper {
+  margin-left: 304px;
+  margin-top: 304px;
+  width: 1440px;
+  height: 1440px;
+  position: relative;
+  font-size: calc(var(--font-size-nrm) + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+  font-weight: bold;
+  text-align: center;
+}
+#quickmenu-wrapper .row {
+  display: flex;
+}

@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "target": "ES2015",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "jsx": "preserve",
+        "jsxImportSource": "solid-js",
+        "types": [
+            "vite/client",
+            "node"
+        ],
+        "noEmit": true,
+        "isolatedModules": true
+    }
+}
