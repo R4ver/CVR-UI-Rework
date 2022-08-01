@@ -10,6 +10,10 @@ Clone the project and cd into it and run `yarn install`.
 
 run `yarn dev` for developing in the browser and `yarn build` to build to the game folder.
 
+if you wanna hot reload from within the game you can spin up a small web server with `yarn watch` and build the UI with `yarn build:dev`.
+The UI will then send a request to the server every 2 seconds and check if the chunk hash changed for the files.
+**NOTE**: Running `yarn build` while the dev build and web server is running the UI will refresh, but stop checking for changes since the dev flag gets turned off.
+
 # Disclaimer
 This UI modification is unofficial and not supported by Alpha Blend Interactive. 
 Using this modification might cause issues with performance, security or stability of the game.
