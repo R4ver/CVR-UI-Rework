@@ -5,7 +5,9 @@
     "cvrPath": "C:/steam/steamapps/common/ChilloutVR",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "build:dev": "set IS_BUILD_DEV=true&&vite build",
+        "watch": "node -r esm ui_dev_server.js"
     },
     "license": "MIT",
     "devDependencies": {
@@ -15,6 +17,8 @@
         "autoprefixer": "^10.4.7",
         "eslint": "^8.20.0",
         "eslint-plugin-solid": "^0.7.1",
+        "esm": "^3.2.25",
+        "express": "^4.18.1",
         "postcss": "^8.4.14",
         "postcss-color-hex-alpha": "^8.0.4",
         "postcss-preset-env": "^7.7.2",
@@ -22,7 +26,10 @@
         "typescript": "^4.7.4",
         "vite": "^3.0.0",
         "vite-plugin-eslint": "^1.7.0",
-        "vite-plugin-solid": "^2.3.0"
+        "vite-plugin-solid": "^2.3.0",
+        "ws": "^8.8.1",
+        "cors": "^2.8.5",
+        "whatwg-fetch": "^3.6.2"
     },
     "dependencies": {
         "solid-js": "^1.4.7"

@@ -20,7 +20,6 @@ if ( cvrPath ) {
         fs.renameSync( cvrUIPath, `${cvrUIPath}_old` );
     }
 }
-    
 
 const htmlPlugin = ( dev: boolean ) => {
     if ( dev ) {
@@ -31,8 +30,7 @@ const htmlPlugin = ( dev: boolean ) => {
                     /\{\{root\}\}/g,
                     ""
                 );
-            
-
+                
                 return html; 
             }
         };
@@ -54,6 +52,11 @@ const htmlPlugin = ( dev: boolean ) => {
             html = html.replace(
                 /(crossorigin|type="module")/g,
                 ""
+            );
+
+            html = html.replace(
+                /{{dev}}/g,
+                `${process.env.IS_BUILD_DEV}`
             );
 
             const regexString = `.+(${fileName}).+`;
@@ -112,6 +115,7 @@ const solidFix = () => {
 };
 
 export default defineConfig( ( { command } ) => {
+
     if ( command === "build" ) {
         return {
             plugins: [eslint(), solidPlugin(), solidFix(), htmlPlugin( false )],
