@@ -4,18 +4,6 @@ This is a project to rewrite ChilloutVR's game UI using SolidJS and TailwindCSS
 # Goal
 Make development of the UI easy and of course make it beautiful.
 
-The current implementation of the UI is using `cohtml`, which looks something like this:
-
-```javascript
-menu.templates["core-quick-avatar-actions"] = {c: "avatar-actions menu-category hidden", s: [
-    {c: "container-emotes", s:[{c: "header", h: t("core-emote-header")}, {c: "content"}]},
-    {c: "container-states", s:[{c: "header", h: t("core-states-header")}, {c: "content"}]},
-    {c: "container-back", s:[{c: "icon"}, {c: "content", h: t("core-back-to-main")}], x: "switchCategory", a: {"data-category": "quickmenu-home"}}
-]};
-```
-
-While this works it gets tedious to write in the long run.
-
 # Setup Project
 Clone the project and cd into it and run `yarn install`.
 **Make sure** to set the `cvrPath` key in your `package.json` to your games default location eg. `C:/steam/steamapps/common/ChilloutVR`.
