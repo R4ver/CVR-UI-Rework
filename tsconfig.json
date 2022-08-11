@@ -1,8 +1,7 @@
 {
     "compilerOptions": {
-        "strict": true,
-        "target": "ES2015",
-        "module": "commonjs",
+        "target": "ESNext",
+        "module": "ESNext",
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,

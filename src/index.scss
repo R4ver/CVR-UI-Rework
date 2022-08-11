@@ -1,0 +1,406 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --wrapper-background: transparent;
+        --element-background: #292929;
+        --element-hover: #525252;
+        --color-confirm: #37BD3C;
+        --color-deny: #C41F1F;
+        --color-secondary: #ABABAB;
+        --color-btn: #323232;
+        --color-btn-warn: #C58F05;
+        --color-btn-secondary: #6B6B6B;
+        --color-btn-primary: #1664BE;
+        --color-btn-border: #FFFFFF;
+        --color-btn-text: #FFFFFF;
+        
+        --standard-text-color: #D2D2D2;
+        --standard-font-family: Droid Sans;
+        --font-size-nrm: 24px;
+        --font-size-big: 36px;
+        --font-size-bigger: 48px;
+        --font-size-biggest: 58px;
+        --font-size-ui: 40px;
+        --font-color-dark: #4A4A4A;
+        
+        --container-border-radius: 10px;
+        --button-border-radius: 10px;
+        
+        --home-background: #333333;
+        --panel-border-color: #1664BE;
+        --panel-sub-border-color: rgba(0, 0, 0, 0.25);
+        --panel-font-color: #e4e4e4;
+        --panel-sub-font-color: #DCDCDC99;
+        --window-width: 2048px;
+        --window-height: 1640px;
+        --cvr-orange: #ff5824;
+        --cvr-black: #0e0e13;
+        --cvr-white: #ebecef;
+        --cvr-dark: #17181c;
+        --cvr-darklight: #2a2b36;
+        --cvr-green: #37bd3c;
+        --cvr-red: #bd3737;
+    }
+}
+
+html, body {
+    font-family: sans-serif;
+    font-weight: 400;
+}
+
+button {
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 304px;
+}
+
+#quickmenu-wrapper {
+    display: block;
+    position: relative;
+    margin-top: 304px;
+    width: var(--window-width);
+    height: var(--window-height);
+    font-size: calc(var(--font-size-nrm) + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+
+#quickmenu-wrapper {
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(21, 21, 28, 0.9) 0%, #111017 100%);
+
+    .background-waves {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+
+        background-image: url("../waves.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .stats p {
+        min-width: 150px;
+    }
+}
+
+.ui-button {
+    &.big {
+        width: calc(var(--window-width) / 4 - 100px);
+    }
+
+    &:hover {
+        filter: drop-shadow(0 0 10px var(--cvr-orange));
+        .icon {
+            filter: none;
+        }
+    }
+}
+
+.icon-jacket {
+    background: url("../ui_icon_set.png");
+    background-position: 0px 0px;
+    background-size: 561.6666666666666px 241.66666666666666px;
+    width: 80px;
+    height: 80px;
+}
+    
+.icon-camera {
+    background: url("../ui_icon_set.png");
+    background-position: -80px 0px;
+    background-size: 561.6666666666666px 241.66666666666666px;
+    width: 80px;
+    height: 80px;
+}
+    
+.icon-fly {
+    background: url("../ui_icon_set.png");
+    background-position: -160px 0px;
+    background-size: 561.6666666666666px 241.66666666666666px;
+    width: 80px;
+    height: 80px;
+}
+    
+.icon-friends {
+    background: url("../ui_icon_set.png");
+    background-position: -240px 0px;
+    background-size: 561.6666666666666px 241.66666666666666px;
+    width: 80px;
+    height: 80px;
+}
+    
+.icon-play {
+    background: url("../ui_icon_set.png");
+    background-position: -320px 0px;
+    background-size: 561.6666666666666px 241.66666666666666px;
+    width: 80px;
+    height: 80px;
+}
+    
+.icon-next {
+    background: url("../ui_icon_set.png");
+    background-position: -400px 0px;
+    background-size: 561.6666666666666px 241.66666666666666px;
+    width: 80px;
+    height: 80px;
+}
+    
+.icon-prev {
+    background: url("../ui_icon_set.png");
+    background-position: -480px 0px;
+    background-size: 561.6666666666666px 241.66666666666666px;
+    width: 80px;
+    height: 80px;
+}
+    
+.icon-dance {
+    background: url("../ui_icon_set.png");
+    background-position: 0px -80px;
+    background-size: 561.6666666666666px 241.66666666666666px;
+    width: 80px;
+    height: 80px;
+}
+    
+.icon-calender {
+    background: url("../ui_icon_set.png");
+    background-position: -80px -80px;
+    background-size: 561.6666666666666px 241.66666666666666px;
+    width: 80px;
+    height: 80px;
+}
+    
+.icon-tpose {
+    background: url("../ui_icon_set.png");
+    background-position: -160px -80px;
+    background-size: 561.6666666666666px 241.66666666666666px;
+    width: 80px;
+    height: 80px;
+}
+    
+.icon-pin {
+    background: url("../ui_icon_set.png");
+    background-position: -240px -80px;
+    background-size: 561.6666666666666px 241.66666666666666px;
+    width: 80px;
+    height: 80px;
+}
+    
+.icon-cube {
+    background: url("../ui_icon_set.png");
+    background-position: -320px -80px;
+    background-size: 561.6666666666666px 241.66666666666666px;
+    width: 80px;
+    height: 80px;
+}
+    
+.icon-house {
+    background: url("../ui_icon_set.png");
+    background-position: -400px -80px;
+    background-size: 561.6666666666666px 241.66666666666666px;
+    width: 80px;
+    height: 80px;
+}
+    
+.icon-bottle {
+    background: url("../ui_icon_set.png");
+    background-position: -480px -80px;
+    background-size: 561.6666666666666px 241.66666666666666px;
+    width: 80px;
+    height: 80px;
+}
+    
+.icon-group {
+    background: url("../ui_icon_set.png");
+    background-position: 0px -160px;
+    background-size: 561.6666666666666px 241.66666666666666px;
+    width: 80px;
+    height: 80px;
+}
+    
+.icon-mic {
+    background: url("../ui_icon_set.png");
+    background-position: -80px -160px;
+    background-size: 561.6666666666666px 241.66666666666666px;
+    width: 80px;
+    height: 80px;
+}
+    
+.icon-map {
+    background: url("../ui_icon_set.png");
+    background-position: -160px -160px;
+    background-size: 561.6666666666666px 241.66666666666666px;
+    width: 80px;
+    height: 80px;
+}
+    
+.icon-world {
+    background: url("../ui_icon_set.png");
+    background-position: -240px -160px;
+    background-size: 561.6666666666666px 241.66666666666666px;
+    width: 80px;
+    height: 80px;
+}
+
+.icon-jacket-md {
+    background: url("../ui_icon_set.png");
+    background-position: 0px 0px;
+    background-size: 702.0833333333334px 302.08333333333337px;
+    width: 100px;
+    height: 100px;
+}
+    
+.icon-camera-md {
+    background: url("../ui_icon_set.png");
+    background-position: -100px 0px;
+    background-size: 702.0833333333334px 302.08333333333337px;
+    width: 100px;
+    height: 100px;
+}
+    
+.icon-fly-md {
+    background: url("../ui_icon_set.png");
+    background-position: -200px 0px;
+    background-size: 702.0833333333334px 302.08333333333337px;
+    width: 100px;
+    height: 100px;
+}
+    
+.icon-friends-md {
+    background: url("../ui_icon_set.png");
+    background-position: -300px 0px;
+    background-size: 702.0833333333334px 302.08333333333337px;
+    width: 100px;
+    height: 100px;
+}
+    
+.icon-play-md {
+    background: url("../ui_icon_set.png");
+    background-position: -400px 0px;
+    background-size: 702.0833333333334px 302.08333333333337px;
+    width: 100px;
+    height: 100px;
+}
+    
+.icon-next-md {
+    background: url("../ui_icon_set.png");
+    background-position: -500px 0px;
+    background-size: 702.0833333333334px 302.08333333333337px;
+    width: 100px;
+    height: 100px;
+}
+    
+.icon-prev-md {
+    background: url("../ui_icon_set.png");
+    background-position: -600px 0px;
+    background-size: 702.0833333333334px 302.08333333333337px;
+    width: 100px;
+    height: 100px;
+}
+    
+.icon-dance-md {
+    background: url("../ui_icon_set.png");
+    background-position: 0px -100px;
+    background-size: 702.0833333333334px 302.08333333333337px;
+    width: 100px;
+    height: 100px;
+}
+    
+.icon-calender-md {
+    background: url("../ui_icon_set.png");
+    background-position: -100px -100px;
+    background-size: 702.0833333333334px 302.08333333333337px;
+    width: 100px;
+    height: 100px;
+}
+    
+.icon-tpose-md {
+    background: url("../ui_icon_set.png");
+    background-position: -200px -100px;
+    background-size: 702.0833333333334px 302.08333333333337px;
+    width: 100px;
+    height: 100px;
+}
+    
+.icon-pin-md {
+    background: url("../ui_icon_set.png");
+    background-position: -300px -100px;
+    background-size: 702.0833333333334px 302.08333333333337px;
+    width: 100px;
+    height: 100px;
+}
+    
+.icon-cube-md {
+    background: url("../ui_icon_set.png");
+    background-position: -400px -100px;
+    background-size: 702.0833333333334px 302.08333333333337px;
+    width: 100px;
+    height: 100px;
+}
+    
+.icon-house-md {
+    background: url("../ui_icon_set.png");
+    background-position: -500px -100px;
+    background-size: 702.0833333333334px 302.08333333333337px;
+    width: 100px;
+    height: 100px;
+}
+    
+.icon-bottle-md {
+    background: url("../ui_icon_set.png");
+    background-position: -600px -100px;
+    background-size: 702.0833333333334px 302.08333333333337px;
+    width: 100px;
+    height: 100px;
+}
+    
+.icon-group-md {
+    background: url("../ui_icon_set.png");
+    background-position: 0px -200px;
+    background-size: 702.0833333333334px 302.08333333333337px;
+    width: 100px;
+    height: 100px;
+}
+    
+.icon-mic-md {
+    background: url("../ui_icon_set.png");
+    background-position: -100px -200px;
+    background-size: 702.0833333333334px 302.08333333333337px;
+    width: 100px;
+    height: 100px;
+}
+    
+.icon-map-md {
+    background: url("../ui_icon_set.png");
+    background-position: -200px -200px;
+    background-size: 702.0833333333334px 302.08333333333337px;
+    width: 100px;
+    height: 100px;
+}
+    
+.icon-world-md {
+    background: url("../ui_icon_set.png");
+    background-position: -300px -200px;
+    background-size: 702.0833333333334px 302.08333333333337px;
+    width: 100px;
+    height: 100px;
+}
+
+.text-CVRClock {
+    // text-shadow: 0 0 20px rgba(var(--cvr-orange), 1);
+    filter: drop-shadow(0 0 10px var(--cvr-orange));
+}
+
+/* #quickmenu-wrapper {
+    background-image: url("../cvr_quickmenu_test.png");
+} */

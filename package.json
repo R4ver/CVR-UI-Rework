@@ -7,6 +7,7 @@
         "dev": "vite",
         "build": "vite build",
         "build:dev": "set IS_BUILD_DEV=true&&vite build",
+        "watch:dev": "nodemon -e tsx,js,css,scss,ts --watch src --exec \"yarn build:dev\"",
         "watch": "node -r esm ui_dev_server.js"
     },
     "license": "MIT",
@@ -15,10 +16,12 @@
         "@typescript-eslint/eslint-plugin": "^5.31.0",
         "@typescript-eslint/parser": "^5.31.0",
         "autoprefixer": "^10.4.7",
+        "cors": "^2.8.5",
         "eslint": "^8.20.0",
         "eslint-plugin-solid": "^0.7.1",
         "esm": "^3.2.25",
         "express": "^4.18.1",
+        "nodemon": "^2.0.19",
         "postcss": "^8.4.14",
         "postcss-color-hex-alpha": "^8.0.4",
         "postcss-preset-env": "^7.7.2",
@@ -27,11 +30,11 @@
         "vite": "^3.0.0",
         "vite-plugin-eslint": "^1.7.0",
         "vite-plugin-solid": "^2.3.0",
-        "ws": "^8.8.1",
-        "cors": "^2.8.5",
-        "whatwg-fetch": "^3.6.2"
+        "whatwg-fetch": "^3.6.2",
+        "ws": "^8.8.1"
     },
     "dependencies": {
+        "sass": "^1.54.4",
         "solid-js": "^1.4.7"
     }
 }

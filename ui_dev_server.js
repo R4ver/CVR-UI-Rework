@@ -17,23 +17,25 @@ app.post( "/ping", ( req, res ) => {
     let lastChunks = req.body;
     let hasChanged = false;
 
-    fs.readdir( path.resolve( cvrUIPath, "../GameUI/assets" ), ( err, files ) => {
-        hasChanged = lastChunks.chunks.filter( ( e, i ) => e !== files[i] ).length > 0;
+    if ( lastChunks )
+        fs.readdir( path.resolve( cvrUIPath, "../GameUI/assets" ), ( err, files ) => {
+            if ( !files ) return;
+            hasChanged = lastChunks.chunks.filter( ( e, i ) => e !== files[i] ).length > 0;
 
-        if ( hasChanged ) {
+            if ( hasChanged ) {
+                return res.json( {
+                    type: "chunks",
+                    chunks: files,
+                    refresh: true
+                } );
+            }
+
             return res.json( {
                 type: "chunks",
                 chunks: files,
-                refresh: true
+                refresh: false
             } );
-        }
-
-        return res.json( {
-            type: "chunks",
-            chunks: files,
-            refresh: false
         } );
-    } );
 } );
 
 app.listen( port, () => {

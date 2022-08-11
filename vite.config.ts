@@ -99,12 +99,25 @@ const solidFix = () => {
                 const filePath = path.resolve( opt.dir, fileName );
 
                 let data = fs.readFileSync( filePath, { encoding:"utf8" } );
+                
+                /**
+                 * Game UI doesn't support the creation of templates, replace with div
+                 */
                 const templateTagRegExp = /([a-zA-Z])=document.createElement\("template"\)/m;
-        
                 let match = data.match( templateTagRegExp );
                 if ( match ) {
                     data = data.replace( match[0], `${match[1]}=document.createElement("div")` );
                     data = data.replace( `${match[1]}.content.firstChild`, `${match[1]}.firstChild` );
+                }
+
+                /**
+                 * Makes sure that y in element.insertBefore(x, y) is "null" and not "undefined".
+                 * Gameface limitation
+                 */
+                const insertBeforeRegex = /e.insertBefore\([a-z]\[[a-z]\],\s?([a-z])\)/m;
+                let IBRMatch = data.match( insertBeforeRegex );
+                if ( IBRMatch ) {
+                    data = data.replace( `${IBRMatch[0]}`, `{${IBRMatch[1]}=${IBRMatch[1]}?${IBRMatch[1]}:null; ${IBRMatch[0]}}` );
                 }
 
                 fs.writeFileSync( filePath, data  );
@@ -118,6 +131,7 @@ export default defineConfig( ( { command } ) => {
 
     if ( command === "build" ) {
         return {
+            root: "./",
             plugins: [eslint(), solidPlugin(), solidFix(), htmlPlugin( false )],
             base: "",
             build: {
@@ -129,6 +143,7 @@ export default defineConfig( ( { command } ) => {
                     }
                 },
                 outDir: cvrUIPath,
+                publicDir: "src/assets",
                 emptyOutDir: true
             },
         };

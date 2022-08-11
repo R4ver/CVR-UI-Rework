@@ -1,7 +1,8 @@
 /* @refresh reload */
-import "./index.css";
+import "./index.scss";
 
 import { render } from "solid-js/web";
+import { update1Sec, update10Sec } from "./Utils/engine";
 //@ts-ignore
 import { fetch as fetchPolyfill } from "whatwg-fetch";
 
@@ -29,5 +30,8 @@ if ( isDev === "true" ) {
         } )
     , 2000 );
 }
+
+update1Sec();
+update10Sec();
 
 render( () => <App />, document.getElementById( "root" ) as HTMLElement );

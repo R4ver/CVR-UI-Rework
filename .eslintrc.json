@@ -9,7 +9,7 @@
     ],
     "extends": [
         "eslint:recommended",
-        "plugin:solid/recommended"
+        "plugin:solid/typescript"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -51,6 +51,12 @@
                 "exceptions": [
                     "empty"
                 ]
+            }
+        ],
+        "solid/jsx-no-undef": [
+            "error",
+            {
+                "typescriptEnabled": true
             }
         ]
     }
