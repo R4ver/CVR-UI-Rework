@@ -1,6 +1,6 @@
 import { JSX, Component } from "solid-js";
 import UIActions from "../../Utils/actions";
-import { TIcons, printStyle } from "./icons";
+import { TIcons } from "./icons";
 
 type ButtonProps = {
     onClick?: () => void;
@@ -18,7 +18,7 @@ type Props = Partial<ButtonProps> & {
   category: {category: string}
 }["onClick" | "action" | "category"]
 
-printStyle();
+// printStyle();
 
 export const IconButton: Component<Props> = ( props ) => {
 

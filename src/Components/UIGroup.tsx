@@ -16,7 +16,7 @@ export const UIGroup: Component<UIGroupProps> = ( props ) => {
 export const UIRow: Component<UIGroupProps> = ( props ) => {
 
     return (
-        <div class={`flex px-16 py-16 ${props.tailwind ? props.tailwind : ""}`}>
+        <div class={`flex px-16 ${props.tailwind ? props.tailwind : ""}`}>
             {props.children}
         </div>
     );

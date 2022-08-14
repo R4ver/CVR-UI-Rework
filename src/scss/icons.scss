@@ -1,0 +1,49 @@
+$scaleSM: 3;
+$scaleMD: 2.4;
+
+$iconsetWidth: 1680px;
+$iconsetHeight: 720px;
+$tileSize: 240px;
+
+$iconWidthHeightSM: calc($tileSize / $scaleSM);
+$iconWidthHeightMD: calc($tileSize / $scaleMD);
+
+$iconNames: "jacket", "camera", "fly", "friends", "play", "next", "prev", "dance", "calender", "tpose", "pin", "cube", "house", "bottle", "group", "mic", "map", "world";
+
+@function generateIconPositions($x, $y, $scale) {
+    @return calc(-#{$tileSize} * #{$x} / #{$scale}) calc(-#{$tileSize} * #{$y} / #{$scale});
+}
+
+
+$columns: 7;
+$rows: 3;
+$currX: 0;
+$currY: 0;
+
+@each $icon, $i in $iconNames {
+    .icon-#{$icon} {
+        background: url("../ui_icon_set.png");
+        background-position: generateIconPositions($currX, $currY, $scaleSM);
+        background-size: calc($iconsetWidth / $scaleSM) calc($iconsetHeight / $scaleSM);
+        width: $iconWidthHeightSM;
+        height: $iconWidthHeightSM;
+    }
+
+    .icon-#{$icon}-md {
+        background: url("../ui_icon_set.png");
+        background-position: generateIconPositions($currX, $currY, $scaleMD);
+        background-size: calc($iconsetWidth / $scaleMD) calc($iconsetHeight / $scaleMD);
+        width: $iconWidthHeightMD;
+        height: $iconWidthHeightMD;
+    }
+
+
+    
+    $currX: $currX + 1;
+    @if $currX > $columns - 1 {
+        $currX: 0;
+        $currY: $currY + 1;
+    }
+
+    
+}

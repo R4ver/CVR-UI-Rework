@@ -2,6 +2,7 @@ const express = require( "express" );
 const path = require( "path" );
 const cors = require( "cors" );
 const fs = require( "fs" );
+// import { WebSocketServer } from "ws";
 
 const { cvrPath } = require( "./package.json" );
 const cvrUIPath = path.resolve( cvrPath, "./ChilloutVR_Data/StreamingAssets/Cohtml/UIResources/GameUI" );
@@ -41,3 +42,17 @@ app.post( "/ping", ( req, res ) => {
 app.listen( port, () => {
     console.log( `Example app listening on port ${port}` );
 } );
+
+// const wss = new WebSocketServer( { port: 8080 } );
+
+// wss.on( "connection", function connection( ws ) {
+//     ws.on( "message", function message( data ) {
+//         console.log( "received From Client: ", JSON.stringify( data ) );
+//     } );
+
+//     setInterval( () => {
+//         console.log( "Sending data to client: ", JSON.stringify( { msg: "message from server" } ) );
+//     }, 2000 );
+
+//     ws.send( "something" );
+// } );

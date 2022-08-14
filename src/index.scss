@@ -101,299 +101,11 @@ body {
     }
 
     &:hover {
-        filter: drop-shadow(0 0 10px var(--cvr-orange));
+        filter: drop-shadow(0 0 4px var(--cvr-orange));
         .icon {
             filter: none;
         }
     }
-}
-
-.icon-jacket {
-    background: url("../ui_icon_set.png");
-    background-position: 0px 0px;
-    background-size: 561.6666666666666px 241.66666666666666px;
-    width: 80px;
-    height: 80px;
-}
-    
-.icon-camera {
-    background: url("../ui_icon_set.png");
-    background-position: -80px 0px;
-    background-size: 561.6666666666666px 241.66666666666666px;
-    width: 80px;
-    height: 80px;
-}
-    
-.icon-fly {
-    background: url("../ui_icon_set.png");
-    background-position: -160px 0px;
-    background-size: 561.6666666666666px 241.66666666666666px;
-    width: 80px;
-    height: 80px;
-}
-    
-.icon-friends {
-    background: url("../ui_icon_set.png");
-    background-position: -240px 0px;
-    background-size: 561.6666666666666px 241.66666666666666px;
-    width: 80px;
-    height: 80px;
-}
-    
-.icon-play {
-    background: url("../ui_icon_set.png");
-    background-position: -320px 0px;
-    background-size: 561.6666666666666px 241.66666666666666px;
-    width: 80px;
-    height: 80px;
-}
-    
-.icon-next {
-    background: url("../ui_icon_set.png");
-    background-position: -400px 0px;
-    background-size: 561.6666666666666px 241.66666666666666px;
-    width: 80px;
-    height: 80px;
-}
-    
-.icon-prev {
-    background: url("../ui_icon_set.png");
-    background-position: -480px 0px;
-    background-size: 561.6666666666666px 241.66666666666666px;
-    width: 80px;
-    height: 80px;
-}
-    
-.icon-dance {
-    background: url("../ui_icon_set.png");
-    background-position: 0px -80px;
-    background-size: 561.6666666666666px 241.66666666666666px;
-    width: 80px;
-    height: 80px;
-}
-    
-.icon-calender {
-    background: url("../ui_icon_set.png");
-    background-position: -80px -80px;
-    background-size: 561.6666666666666px 241.66666666666666px;
-    width: 80px;
-    height: 80px;
-}
-    
-.icon-tpose {
-    background: url("../ui_icon_set.png");
-    background-position: -160px -80px;
-    background-size: 561.6666666666666px 241.66666666666666px;
-    width: 80px;
-    height: 80px;
-}
-    
-.icon-pin {
-    background: url("../ui_icon_set.png");
-    background-position: -240px -80px;
-    background-size: 561.6666666666666px 241.66666666666666px;
-    width: 80px;
-    height: 80px;
-}
-    
-.icon-cube {
-    background: url("../ui_icon_set.png");
-    background-position: -320px -80px;
-    background-size: 561.6666666666666px 241.66666666666666px;
-    width: 80px;
-    height: 80px;
-}
-    
-.icon-house {
-    background: url("../ui_icon_set.png");
-    background-position: -400px -80px;
-    background-size: 561.6666666666666px 241.66666666666666px;
-    width: 80px;
-    height: 80px;
-}
-    
-.icon-bottle {
-    background: url("../ui_icon_set.png");
-    background-position: -480px -80px;
-    background-size: 561.6666666666666px 241.66666666666666px;
-    width: 80px;
-    height: 80px;
-}
-    
-.icon-group {
-    background: url("../ui_icon_set.png");
-    background-position: 0px -160px;
-    background-size: 561.6666666666666px 241.66666666666666px;
-    width: 80px;
-    height: 80px;
-}
-    
-.icon-mic {
-    background: url("../ui_icon_set.png");
-    background-position: -80px -160px;
-    background-size: 561.6666666666666px 241.66666666666666px;
-    width: 80px;
-    height: 80px;
-}
-    
-.icon-map {
-    background: url("../ui_icon_set.png");
-    background-position: -160px -160px;
-    background-size: 561.6666666666666px 241.66666666666666px;
-    width: 80px;
-    height: 80px;
-}
-    
-.icon-world {
-    background: url("../ui_icon_set.png");
-    background-position: -240px -160px;
-    background-size: 561.6666666666666px 241.66666666666666px;
-    width: 80px;
-    height: 80px;
-}
-
-.icon-jacket-md {
-    background: url("../ui_icon_set.png");
-    background-position: 0px 0px;
-    background-size: 702.0833333333334px 302.08333333333337px;
-    width: 100px;
-    height: 100px;
-}
-    
-.icon-camera-md {
-    background: url("../ui_icon_set.png");
-    background-position: -100px 0px;
-    background-size: 702.0833333333334px 302.08333333333337px;
-    width: 100px;
-    height: 100px;
-}
-    
-.icon-fly-md {
-    background: url("../ui_icon_set.png");
-    background-position: -200px 0px;
-    background-size: 702.0833333333334px 302.08333333333337px;
-    width: 100px;
-    height: 100px;
-}
-    
-.icon-friends-md {
-    background: url("../ui_icon_set.png");
-    background-position: -300px 0px;
-    background-size: 702.0833333333334px 302.08333333333337px;
-    width: 100px;
-    height: 100px;
-}
-    
-.icon-play-md {
-    background: url("../ui_icon_set.png");
-    background-position: -400px 0px;
-    background-size: 702.0833333333334px 302.08333333333337px;
-    width: 100px;
-    height: 100px;
-}
-    
-.icon-next-md {
-    background: url("../ui_icon_set.png");
-    background-position: -500px 0px;
-    background-size: 702.0833333333334px 302.08333333333337px;
-    width: 100px;
-    height: 100px;
-}
-    
-.icon-prev-md {
-    background: url("../ui_icon_set.png");
-    background-position: -600px 0px;
-    background-size: 702.0833333333334px 302.08333333333337px;
-    width: 100px;
-    height: 100px;
-}
-    
-.icon-dance-md {
-    background: url("../ui_icon_set.png");
-    background-position: 0px -100px;
-    background-size: 702.0833333333334px 302.08333333333337px;
-    width: 100px;
-    height: 100px;
-}
-    
-.icon-calender-md {
-    background: url("../ui_icon_set.png");
-    background-position: -100px -100px;
-    background-size: 702.0833333333334px 302.08333333333337px;
-    width: 100px;
-    height: 100px;
-}
-    
-.icon-tpose-md {
-    background: url("../ui_icon_set.png");
-    background-position: -200px -100px;
-    background-size: 702.0833333333334px 302.08333333333337px;
-    width: 100px;
-    height: 100px;
-}
-    
-.icon-pin-md {
-    background: url("../ui_icon_set.png");
-    background-position: -300px -100px;
-    background-size: 702.0833333333334px 302.08333333333337px;
-    width: 100px;
-    height: 100px;
-}
-    
-.icon-cube-md {
-    background: url("../ui_icon_set.png");
-    background-position: -400px -100px;
-    background-size: 702.0833333333334px 302.08333333333337px;
-    width: 100px;
-    height: 100px;
-}
-    
-.icon-house-md {
-    background: url("../ui_icon_set.png");
-    background-position: -500px -100px;
-    background-size: 702.0833333333334px 302.08333333333337px;
-    width: 100px;
-    height: 100px;
-}
-    
-.icon-bottle-md {
-    background: url("../ui_icon_set.png");
-    background-position: -600px -100px;
-    background-size: 702.0833333333334px 302.08333333333337px;
-    width: 100px;
-    height: 100px;
-}
-    
-.icon-group-md {
-    background: url("../ui_icon_set.png");
-    background-position: 0px -200px;
-    background-size: 702.0833333333334px 302.08333333333337px;
-    width: 100px;
-    height: 100px;
-}
-    
-.icon-mic-md {
-    background: url("../ui_icon_set.png");
-    background-position: -100px -200px;
-    background-size: 702.0833333333334px 302.08333333333337px;
-    width: 100px;
-    height: 100px;
-}
-    
-.icon-map-md {
-    background: url("../ui_icon_set.png");
-    background-position: -200px -200px;
-    background-size: 702.0833333333334px 302.08333333333337px;
-    width: 100px;
-    height: 100px;
-}
-    
-.icon-world-md {
-    background: url("../ui_icon_set.png");
-    background-position: -300px -200px;
-    background-size: 702.0833333333334px 302.08333333333337px;
-    width: 100px;
-    height: 100px;
 }
 
 .text-CVRClock {
@@ -404,3 +116,24 @@ body {
 /* #quickmenu-wrapper {
     background-image: url("../cvr_quickmenu_test.png");
 } */
+
+@import "./scss/icons.scss";
+
+.mic-toggle {
+    
+    .ui-button:hover {
+        filter: none;
+
+        span {
+            color: #fff;
+        }
+
+        .icon {
+            filter: brightness(10);
+        }
+    }
+
+    .icon-mic {
+        filter: brightness(10);
+    }
+}

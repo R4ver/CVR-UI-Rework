@@ -84,7 +84,7 @@ const App: Component = () => {
         <div id="quickmenu-wrapper" class="flex flex-col rounded-4xl">
             <div class="background-waves" />
             <UIGroup tailwind="h-full justify-between">
-                <UIRow>
+                <UIRow tailwind="py-16">
                     <div>
                         <Clock timeFormat={json().gameSettings.generalClockFormat} />
                         <div class="stats flex text-white tabular-nums text-3xl -ml-5 relative opacity-50">
@@ -94,14 +94,14 @@ const App: Component = () => {
                         </div>
                     </div>
                 </UIRow>
-                <UIGroup tailwind="justify-center">
-                    <UIRow tailwind="justify-around flex-wrap mb-32">
+                <UIGroup tailwind="justify-center -mt-14">
+                    <UIRow tailwind="justify-around flex-wrap py-16">
                         <BigIconButton icon="fly" action="toggleFlyightMode" label="Fly" />
                         <BigIconButton icon="tpose" action="seatedPlayOrRecalibrate" label="Recalibrate" />
                         <BigIconButton icon="group" action="respawn" label="Groups" />
                         <BigIconButton icon="calender" action="respawn" label="Events" />
                     </UIRow>
-                    <UIRow tailwind="justify-around flex-wrap">
+                    <UIRow tailwind="justify-around flex-wrap py-16">
                         <BigIconButton icon="house" category="exit" label="Go Home" />
                         <BigIconButton icon="cube" category="props" label="Props" />
                         <BigIconButton icon="bottle" action="respawn" label="Avatar Settings" />
@@ -109,18 +109,16 @@ const App: Component = () => {
                     </UIRow>
                 </UIGroup>
 
-                <UIRow tailwind="flex-row justify-between bg-cvr-black">
-                    <div class="flex justify-around w-fit">
-                        <IconButton icon="jacket" category="avatars" label="Avatars" />
-                        <IconButton icon="world" category="worlds" label="Worlds" />
-                        <IconButton icon="friends" category="friends" label="Friends" />
-                        <IconButton icon="camera" action="toggleCamera" label="Camera" />
-                        <IconButton icon="map" category="currentInstance" label="Instance Info" />
-                        <IconButton icon="pin" action="respawn" label="Respawn" />
-                    </div>
-                    <div class="flex justify-end rounded-3xl">
-                        <IconButton icon="mic" action="toggleMic" label="Mic Off" />
-                    </div>
+                <UIRow tailwind="flex-row justify-between bg-cvr-black relative py-2">
+                    <IconButton icon="jacket" category="avatars" label="Avatars" />
+                    <IconButton icon="world" category="worlds" label="Worlds" />
+                    <IconButton icon="friends" category="friends" label="Friends" />
+                    <IconButton icon="camera" action="toggleCamera" label="Camera" />
+                    <IconButton icon="map" category="currentInstance" label="Instance Info" />
+                    <IconButton icon="pin" action="respawn" label="Respawn" />
+                    <div class="mic-toggle flex justify-end rounded-3xl min-w-fit px-10 ml-28 bg-cvr-red py-5">
+                        <IconButton icon="mic" action="toggleMute" label="Mic Off" />
+                    </div>                    
                 </UIRow>
             </UIGroup>
         </div>
