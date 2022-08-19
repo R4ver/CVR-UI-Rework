@@ -100,6 +100,11 @@ body {
         width: calc(var(--window-width) / 4 - 100px);
     }
 
+    &.is-disabled {
+        opacity: .5;
+        pointer-events: none;
+    }
+
     &:hover {
         filter: drop-shadow(0 0 4px var(--cvr-orange));
         .icon {

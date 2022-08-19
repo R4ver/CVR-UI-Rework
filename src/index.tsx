@@ -3,14 +3,16 @@ import "./index.scss";
 
 import { render } from "solid-js/web";
 import { update1Sec, update10Sec } from "./Utils/engine";
-//@ts-ignore
+
 import { fetch as fetchPolyfill } from "whatwg-fetch";
+
+import { SettingsStoreProvider } from "./Store/SettingsStore";
+import { CoreUpdateStoreProvider } from "./Store/CoreUpdate";
 
 import App from "./App";
 
-//@ts-ignore
-const isDev = window.IS_DEV_BUILD;
-if ( isDev === "true" ) {
+const isDev = Boolean( window.IS_DEV_BUILD );
+if ( isDev ) {
     setInterval( () => fetchPolyfill( "http://localhost:3001/ping", {
         method: "POST",
         headers: {
@@ -21,8 +23,8 @@ if ( isDev === "true" ) {
             chunks: JSON.parse( localStorage.getItem( "last_chunks" ) || "[]" )
         } )
     } )
-        .then( ( res: any ) => res.json() )
-        .then( ( data: any ) => {
+        .then( ( res: Response ) => res.json() )
+        .then( ( data: {chunks: string[], refresh: boolean } ) => {
             const chunks = data.chunks || [];
             localStorage.setItem( "last_chunks", JSON.stringify( chunks ) );
     
@@ -34,7 +36,13 @@ if ( isDev === "true" ) {
 update1Sec();
 update10Sec();
 
-render( () => <App />, document.getElementById( "root" ) as HTMLElement );
+render( () => (
+    <SettingsStoreProvider>
+        <CoreUpdateStoreProvider>
+            <App />
+        </CoreUpdateStoreProvider>
+    </SettingsStoreProvider>
+), document.getElementById( "root" ) as HTMLElement );
 
 
 // const ws = new WebSocket( "ws://localhost:8080" );

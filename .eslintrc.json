@@ -9,7 +9,12 @@
     ],
     "extends": [
         "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
         "plugin:solid/typescript"
+    ],
+    "ignorePatterns": [
+        "*.html"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {

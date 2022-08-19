@@ -1,7 +1,7 @@
-const express = require( "express" );
-const path = require( "path" );
-const cors = require( "cors" );
-const fs = require( "fs" );
+import express from "express";
+import path from "path";
+import cors from "cors";
+import fs from "fs";
 // import { WebSocketServer } from "ws";
 
 const { cvrPath } = require( "./package.json" );
@@ -47,12 +47,6 @@ app.listen( port, () => {
 
 // wss.on( "connection", function connection( ws ) {
 //     ws.on( "message", function message( data ) {
-//         console.log( "received From Client: ", JSON.stringify( data ) );
+//         console.log( "received From Client: ", JSON.parse( data ) );
 //     } );
-
-//     setInterval( () => {
-//         console.log( "Sending data to client: ", JSON.stringify( { msg: "message from server" } ) );
-//     }, 2000 );
-
-//     ws.send( "something" );
 // } );

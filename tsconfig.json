@@ -12,6 +12,6 @@
             "node"
         ],
         "noEmit": true,
-        "isolatedModules": true
+        "isolatedModules": true,
     }
 }
