@@ -1,7 +1,8 @@
 import type { Component } from "solid-js";
 
 import { useSettings } from "./Store/SettingsStore";
-import { UIView } from "./Components";
+import { UIView, NotificationViewAlt } from "./Views";
+
 
 const App: Component = () => {
     const { initialized, initSettings } = useSettings();
@@ -11,9 +12,12 @@ const App: Component = () => {
     }
 
     return (
-        <div id="quickmenu-wrapper" class="flex flex-col rounded-4xl">
-            <div class="background-waves" />
-            <UIView />
+        <div class ="flex flex-col items-start justify-center mt-44">
+            <NotificationViewAlt />
+            <div id="quickmenu-wrapper" class="flex flex-col rounded-4xl">
+                <div class="background-waves" />
+                <UIView />
+            </div>
         </div>
     );
 };

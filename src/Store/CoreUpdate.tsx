@@ -14,8 +14,6 @@ export interface CoreUpdateProviderProps {
   children: JSX.Element;
 }
 
-// const ws = new WebSocket( "ws://localhost:8080" );
-
 export const CoreUpdateStoreProvider: Component<CoreUpdateProviderProps> = ( props ) => {
     const [coreUpdate, setCoreUpdate] = createSignal<DeepPartial<TCoreUpdate>>( {
         core: {
@@ -28,7 +26,6 @@ export const CoreUpdateStoreProvider: Component<CoreUpdateProviderProps> = ( pro
     } );
 
     UIEngine.on( "ReceiveCoreUpdate", ( props: string ) => {
-        // ws.send( JSON.stringify( props ) );
         const parsedString = JSON.parse( props );
         setCoreUpdate( prev => ( { ...prev, ...parsedString } ) );
     } );

@@ -8,7 +8,7 @@ $tileSize: 240px;
 $iconWidthHeightSM: calc($tileSize / $scaleSM);
 $iconWidthHeightMD: calc($tileSize / $scaleMD);
 
-$iconNames: "jacket", "camera", "fly", "friends", "play", "next", "prev", "dance", "calender", "tpose", "pin", "cube", "house", "bottle", "group", "mic", "map", "world";
+$iconNames: "jacket", "camera", "fly", "friends", "play", "next", "prev", "dance", "calender", "tpose", "pin", "cube", "house", "bottle", "group", "mic", "map", "world", "bell", "belldot";
 
 @function generateIconPositions($x, $y, $scale) {
     @return calc(-#{$tileSize} * #{$x} / #{$scale}) calc(-#{$tileSize} * #{$y} / #{$scale});

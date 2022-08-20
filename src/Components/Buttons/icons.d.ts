@@ -16,4 +16,6 @@ export type TIcons =
     "group" |
     "mic" |
     "map" |
-    "world";
+    "world" |
+    "bell" |
+    "belldot";

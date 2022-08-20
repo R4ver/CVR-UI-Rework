@@ -37,7 +37,7 @@
         --panel-font-color: #e4e4e4;
         --panel-sub-font-color: #DCDCDC99;
         --window-width: 2048px;
-        --window-height: 1640px;
+        --window-height: 1400px;
         --cvr-orange: #ff5824;
         --cvr-black: #0e0e13;
         --cvr-white: #ebecef;
@@ -64,13 +64,15 @@ body {
     margin-bottom: 304px;
 }
 
+div {
+    font-size: calc(var(--font-size-nrm) + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+
 #quickmenu-wrapper {
     display: block;
     position: relative;
-    margin-top: 304px;
     width: var(--window-width);
     height: var(--window-height);
-    font-size: calc(var(--font-size-nrm) + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
 
 #quickmenu-wrapper {

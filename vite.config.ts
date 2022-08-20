@@ -4,17 +4,16 @@ import eslint from "vite-plugin-eslint";
 import fs from "fs";
 import path from "path";
 
-let cvrPath = process.env.npm_package_cvrPath;
+const cvrPath = process.env.npm_package_cvrPath;
 let cvrUIPath = "";
 
 if ( cvrPath ) {
     cvrUIPath = path.resolve( cvrPath, "./ChilloutVR_Data/StreamingAssets/Cohtml/UIResources/GameUI" );
-    let cvrUIOldPath = path.resolve( cvrPath, "./ChilloutVR_Data/StreamingAssets/Cohtml/UIResources/GameUI_old" );
+    const cvrUIOldPath = path.resolve( cvrPath, "./ChilloutVR_Data/StreamingAssets/Cohtml/UIResources/GameUI_old" );
     
     // Need to check if we can even find the default folder.
     if ( !fs.existsSync( cvrUIPath ) ) throw Error( "Cannot find game UI folder!" );
     // If we already have a backup folder we don't need to rename the current GameUI folder
-    // @ts-ignore
     if ( !fs.existsSync( cvrUIOldPath ) ) {
         // Backup the old GameUI folder
         fs.renameSync( cvrUIPath, `${cvrUIPath}_old` );
@@ -40,7 +39,7 @@ const htmlPlugin = ( dev: boolean ) => {
         name: "html-transform",
         transformIndexHtml( html: string, ctx: any ) {
 
-            var fileName = ctx.path.replace( /\/(.+).html$/, "$1" );
+            const fileName = ctx.path.replace( /\/(.+).html$/, "$1" );
 
             html = html.replace(
                 /(href|src)=".\/(.+)"/g,
@@ -61,7 +60,7 @@ const htmlPlugin = ( dev: boolean ) => {
 
             const regexString = `.+(${fileName}).+`;
             const regex = new RegExp( regexString, "g" );
-            let match = html.match( regex );
+            const match = html.match( regex );
 
             if ( match ) {
                 html = html.replace( match[0], "" );
@@ -104,7 +103,7 @@ const solidFix = () => {
                  * Game UI doesn't support the creation of templates, replace with div
                  */
                 const templateTagRegExp = /([a-zA-Z])=document.createElement\("template"\)/m;
-                let match = data.match( templateTagRegExp );
+                const match = data.match( templateTagRegExp );
                 if ( match ) {
                     data = data.replace( match[0], `${match[1]}=document.createElement("div")` );
                     data = data.replace( `${match[1]}.content.firstChild`, `${match[1]}.firstChild` );
@@ -115,9 +114,21 @@ const solidFix = () => {
                  * Gameface limitation
                  */
                 const insertBeforeRegex = /e.insertBefore\([a-z]\[[a-z]\],\s?([a-z])\)/m;
-                let IBRMatch = data.match( insertBeforeRegex );
+                const IBRMatch = data.match( insertBeforeRegex );
                 if ( IBRMatch ) {
                     data = data.replace( `${IBRMatch[0]}`, `{${IBRMatch[1]}=${IBRMatch[1]}?${IBRMatch[1]}:null; ${IBRMatch[0]}}` );
+                }
+
+                /**
+                 * Fixes some odd issue when Solid goes through an array using the <For> component
+                 */
+                const idekknowanymore = /(\w)\[(\w)\+\+].remove\(\)/m;
+                const somematch = data.match( idekknowanymore );
+                if ( somematch ) {
+                    data = data.replace( `${somematch[0]}`, `
+                        var elem = ${somematch[1]}[${somematch[2]}++];
+                        elem.parentElement.removeChild( elem );
+                    ` );
                 }
 
                 fs.writeFileSync( filePath, data  );

@@ -16,7 +16,8 @@ module.exports = {
                 "cvr-red": "var(--cvr-red)"
             },
             borderRadius: {
-                "4xl": "40px"
+                "4xl": "40px",
+                "5xl": "80px"
             },
             width: {
                 "cvr-icon-big": "100px",

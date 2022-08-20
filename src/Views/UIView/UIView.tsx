@@ -1,12 +1,19 @@
 import { createSignal, createEffect, onCleanup } from "solid-js";
+import type { Component } from "solid-js";
 
 import { 
     IconButton,
-    BigIconButton
-} from "..";
+    BigIconButton,
+    IconButtonRound
+} from "../../Components";
+// import { NotificationView } from "..";
 import { useCoreUpdate } from "../../Store/CoreUpdate";
 
-const Clock = ( props: {timeFormat: string} ) => {
+
+
+const Clock: Component<{
+    timeFormat: string
+}> = ( props ) => {
     const [clock, setClock] = createSignal( new Date() );
 
     createEffect( () => {
@@ -25,7 +32,7 @@ const Clock = ( props: {timeFormat: string} ) => {
 
         return (
             <p>
-                <span class="text-CVRClock text-orange-600 font-light">{h < 10 ? ( isTwelweHour ? `${h}` : `0${h}` ) : h}:{m < 10 ? `0${m}` : m}</span>
+                <span class="text-CVRClock text-orange-600 font-light">{h < 10 ? `0${h}`: h}:{m < 10 ? `0${m}` : m}</span>
                 <span class="text-white text-CVRBigger ml-2 pt-4 ">{format}</span>
             </p>
         );
@@ -36,12 +43,12 @@ const Clock = ( props: {timeFormat: string} ) => {
     );
 };
 
-export const UIView = () => {
+export const UIView: Component = () => {
     const { coreUpdate } = useCoreUpdate();
 
     return (
         <div class="flex flex-col z-10 relative h-full justify-between">
-            <div class="flex px-16 py-16">
+            <div class="flex px-16 py-16 justify-between items-center">
                 <div>
                     <Clock timeFormat={coreUpdate().gameSettings.generalClockFormat || "12"} />
                     <div class="stats flex text-white tabular-nums text-3xl -ml-5 relative opacity-50">
@@ -49,6 +56,9 @@ export const UIView = () => {
                         <span class="text-center">|</span>
                         <p class="flex justify-center text-center">{coreUpdate().core.ping} PING</p>
                     </div>
+                </div>
+                <div>
+                    {/* <NotificationView /> */}
                 </div>
             </div>
             <div class="flex flex-col z-10 relative justify-center -mt-14">
@@ -61,7 +71,7 @@ export const UIView = () => {
                 <div class="flex px-16 justify-around flex-wrap py-16">
                     <BigIconButton playSound icon="house" category="exit" label="Go Home" />
                     <BigIconButton playSound icon="cube" category="props" label="Props" />
-                    <BigIconButton playSound icon="bottle" action="respawn" label="Avatar Settings" />
+                    <BigIconButton playSound icon="bottle" onClick={() => location.reload()} label="Avatar Settings" />
                     <BigIconButton playSound icon="dance" action="respawn" label="Emotes" />
                 </div>
             </div>

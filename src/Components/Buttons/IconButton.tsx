@@ -10,7 +10,7 @@ type ButtonProps = {
     category?: string;
     content?: string;
     icon: TIcons;
-    label: string;
+    label?: string;
     disabled?: boolean;
     playSound?: boolean;
     children: JSX.Element;
@@ -77,12 +77,12 @@ export const IconButton: Component<Props> = ( props ) => {
         data-x={props.action || "hover"}
         disabled={props.disabled ? props.disabled : false}
     >
-        <div class={`icon-wrapper w-20 h-20 mb-8`}>
+        <div class={`icon-wrapper w-20 h-20`}>
             <div 
                 class={`icon icon-${props.icon}`}
             />
         </div>
-        <span class="text-white text-CVRUI group-hover__text-orange-600">{props.label}</span>
+        {props.label && <span class="text-white text-CVRUI group-hover__text-orange-600 mt-8">{props.label}</span> }
     </button>;
 };  
 
@@ -113,11 +113,47 @@ export const BigIconButton: Component<Props> = ( props ) => {
         onMouseEnter={() => handleMouseEnter()}
         disabled={props.disabled ? props.disabled : false}
     >
-        <div class={`icon-wrapper w-cvr-icon-big h-cvr-icon-big mb-8`}>
+        <div class={`icon-wrapper w-cvr-icon-big h-cvr-icon-big`}>
             <div 
                 class={`icon icon-${props.icon}-md`}
             />
         </div>
-        <span class="text-white text-CVRUI group-hover__text-orange-600">{props.label}</span>
+        {props.label && <span class="text-white text-CVRUI group-hover__text-orange-600 mt-8">{props.label}</span> }
     </button>;
 };  
+
+export const IconButtonRound: Component<Props> = ( props ) => {
+
+    const handleClick = () => {
+        if ( props.onClick ){
+            props.onClick();
+            return;
+        }
+        
+        if ( props.category ) {
+            UIActions["showMainMenuPage"]( props.category );
+            return;
+        }
+
+        UIActions[props.action]();
+    };
+
+    const handleMouseEnter = () => {
+        if ( props.playSound ) playSoundCore( "Hover" );
+    };
+
+    return <button 
+        class={`ui-button group flex flex-col items-center justify-center px-5 py-5 font-normal rounded-full bg-cvr-black ${props.disabled ? "is-disabled" : ""}`}
+        onClick={() => handleClick()}
+        onMouseEnter={() => handleMouseEnter()}
+        data-x={props.action || "hover"}
+        disabled={props.disabled ? props.disabled : false}
+    >
+        <div class={`icon-wrapper w-20 h-20`}>
+            <div 
+                class={`icon icon-${props.icon}`}
+            />
+        </div>
+        {props.label && <span class="text-white text-CVRUI group-hover__text-orange-600 mt-8">{props.label}</span> }
+    </button>;
+}; 

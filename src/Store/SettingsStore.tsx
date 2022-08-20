@@ -18,8 +18,8 @@ const SettingsProvider = SettingsStore.Provider;
 export interface SettingsStoreProviderProps {
   children: JSX.Element;
 }
-
-const SETTING_PREFIX = "com.r4ver.";
+ 
+const SETTING_PREFIX = "com.r4ver."; 
 
 export const SettingsStoreProvider: Component<SettingsStoreProviderProps> = ( props ) => {
     const [settings, setUISettings] = createSignal( {} );
