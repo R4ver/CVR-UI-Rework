@@ -13,6 +13,7 @@ type ButtonProps = {
     label?: string;
     disabled?: boolean;
     playSound?: boolean;
+    active?: boolean;
     children: JSX.Element;
 }
 
@@ -69,9 +70,8 @@ export const IconButton: Component<Props> = ( props ) => {
     const handleMouseEnter = () => {
         if ( props.playSound ) playSoundCore( "Hover" );
     };
-
     return <button 
-        class={`ui-button group flex flex-col items-center justify-center px-5 py-5 font-normal ${props.disabled ? "is-disabled" : ""}`}
+        class={`ui-button group flex flex-col items-center justify-center px-5 py-5 font-normal ${props.disabled ? "is-disabled" : ""} ${props.active ? "active" : ""}`}
         onClick={() => handleClick()}
         onMouseEnter={() => handleMouseEnter()}
         data-x={props.action || "hover"}
@@ -107,7 +107,7 @@ export const BigIconButton: Component<Props> = ( props ) => {
     };
 
     return <button 
-        class={`ui-button group big flex flex-col items-center justify-center px-14 py-5 font-normal ${props.disabled ? "is-disabled" : ""}`} 
+        class={`ui-button group big flex flex-col items-center justify-center px-14 py-5 font-normal ${props.disabled ? "is-disabled" : ""} ${props.active ? "active" : ""}`} 
         onClick={() => handleClick()}
         data-x={props.action || "hover"}
         onMouseEnter={() => handleMouseEnter()}
@@ -143,7 +143,7 @@ export const IconButtonRound: Component<Props> = ( props ) => {
     };
 
     return <button 
-        class={`ui-button group flex flex-col items-center justify-center px-5 py-5 font-normal rounded-full bg-cvr-black ${props.disabled ? "is-disabled" : ""}`}
+        class={`ui-button group flex flex-col items-center justify-center px-5 py-5 font-normal rounded-full bg-cvr-black ${props.disabled ? "is-disabled" : ""} ${props.active ? "active" : ""}`}
         onClick={() => handleClick()}
         onMouseEnter={() => handleMouseEnter()}
         data-x={props.action || "hover"}

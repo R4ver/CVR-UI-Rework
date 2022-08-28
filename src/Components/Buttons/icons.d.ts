@@ -18,4 +18,7 @@ export type TIcons =
     "map" |
     "world" |
     "bell" |
-    "belldot";
+    "belldot" |
+    "checkmark" |
+    "cancel" |
+    "cogwheel";

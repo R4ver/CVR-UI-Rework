@@ -4,9 +4,9 @@ import type { Component } from "solid-js";
 import { 
     IconButton,
     BigIconButton,
-    IconButtonRound
+    MicToggle
 } from "../../Components";
-// import { NotificationView } from "..";
+import { NotificationView } from "../../Components";
 import { useCoreUpdate } from "../../Store/CoreUpdate";
 
 
@@ -32,7 +32,7 @@ const Clock: Component<{
 
         return (
             <p>
-                <span class="text-CVRClock text-orange-600 font-light">{h < 10 ? `0${h}`: h}:{m < 10 ? `0${m}` : m}</span>
+                <span class="text-CVRClock text-cvr-orange font-light">{h < 10 ? `0${h}`: h}:{m < 10 ? `0${m}` : m}</span>
                 <span class="text-white text-CVRBigger ml-2 pt-4 ">{format}</span>
             </p>
         );
@@ -46,10 +46,13 @@ const Clock: Component<{
 export const UIView: Component = () => {
     const { coreUpdate } = useCoreUpdate();
 
+    
+
     return (
         <div class="flex flex-col z-10 relative h-full justify-between">
             <div class="flex px-16 py-16 justify-between items-center">
                 <div>
+                    {/* {console.log( JSON.stringify( coreUpdate().instance ) )} */}
                     <Clock timeFormat={coreUpdate().gameSettings.generalClockFormat || "12"} />
                     <div class="stats flex text-white tabular-nums text-3xl -ml-5 relative opacity-50">
                         <p class="flex justify-center text-center">{coreUpdate().core.fps} FPS</p>
@@ -58,7 +61,7 @@ export const UIView: Component = () => {
                     </div>
                 </div>
                 <div>
-                    {/* <NotificationView /> */}
+                    <NotificationView />
                 </div>
             </div>
             <div class="flex flex-col z-10 relative justify-center -mt-14">
@@ -71,7 +74,7 @@ export const UIView: Component = () => {
                 <div class="flex px-16 justify-around flex-wrap py-16">
                     <BigIconButton playSound icon="house" category="exit" label="Go Home" />
                     <BigIconButton playSound icon="cube" category="props" label="Props" />
-                    <BigIconButton playSound icon="bottle" onClick={() => location.reload()} label="Avatar Settings" />
+                    <BigIconButton playSound icon="bottle" action="respawn" label="Avatar Settings" />
                     <BigIconButton playSound icon="dance" action="respawn" label="Emotes" />
                 </div>
             </div>
@@ -83,9 +86,7 @@ export const UIView: Component = () => {
                 <IconButton playSound icon="camera" action="toggleCamera" label="Camera" />
                 <IconButton playSound icon="map" category="currentInstance" label="Instance Info" />
                 <IconButton playSound icon="pin" action="respawn" label="Respawn" />
-                <div class="mic-toggle flex justify-end rounded-3xl min-w-fit px-10 ml-28 bg-cvr-red py-5">
-                    <IconButton playSound icon="mic" action="toggleMute" label="Mic Off" />
-                </div>                    
+                <MicToggle />             
             </div>
         </div>
     );

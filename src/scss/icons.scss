@@ -1,22 +1,24 @@
+@use "sass:math";
+
 $scaleSM: 3;
 $scaleMD: 2.4;
 
 $iconsetWidth: 1680px;
-$iconsetHeight: 720px;
+$iconsetHeight: 960px;
 $tileSize: 240px;
 
 $iconWidthHeightSM: calc($tileSize / $scaleSM);
 $iconWidthHeightMD: calc($tileSize / $scaleMD);
 
-$iconNames: "jacket", "camera", "fly", "friends", "play", "next", "prev", "dance", "calender", "tpose", "pin", "cube", "house", "bottle", "group", "mic", "map", "world", "bell", "belldot";
+$iconNames: "jacket", "camera", "fly", "friends", "play", "next", "prev", "dance", "calender", "tpose", "pin", "cube", "house", "bottle", "group", "mic", "map", "world", "bell", "belldot", "checkmark","cancel", "cogwheel";
 
 @function generateIconPositions($x, $y, $scale) {
-    @return calc(-#{$tileSize} * #{$x} / #{$scale}) calc(-#{$tileSize} * #{$y} / #{$scale});
+    @return #{-$tileSize * math.div($x, $scale)} #{-$tileSize * math.div($y, $scale)};
 }
 
 
 $columns: 7;
-$rows: 3;
+$rows: 4; 
 $currX: 0;
 $currY: 0;
 
@@ -36,7 +38,7 @@ $currY: 0;
         width: $iconWidthHeightMD;
         height: $iconWidthHeightMD;
     }
-
+ 
 
     
     $currX: $currX + 1;

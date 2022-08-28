@@ -107,6 +107,14 @@ div {
         pointer-events: none;
     }
 
+    .icon {
+        filter: brightness(10);
+    }
+
+    &.active .icon {
+        filter: brightness(1);
+    }
+
     &:hover {
         filter: drop-shadow(0 0 4px var(--cvr-orange));
         .icon {
@@ -142,5 +150,14 @@ div {
 
     .icon-mic {
         filter: brightness(10);
+    }
+}
+
+.notification-wrapper {
+    width: 1224px;
+
+    .notification-image {
+        overflow: hidden;
+        background-size: cover;
     }
 }

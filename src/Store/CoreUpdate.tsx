@@ -19,6 +19,7 @@ export const CoreUpdateStoreProvider: Component<CoreUpdateProviderProps> = ( pro
         core: {
             fps: 0,
             ping: 0,
+            muted: true
         },
         gameSettings: {
             generalClockFormat: "24"

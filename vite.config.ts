@@ -120,16 +120,17 @@ const solidFix = () => {
                 }
 
                 /**
-                 * Fixes some odd issue when Solid goes through an array using the <For> component
+                 * GameFace doesn't support Node.remove(); 
+                 * This fixes that by getting the parent and use removeChild(Node);
                  */
-                const idekknowanymore = /(\w)\[(\w)\+\+].remove\(\)/m;
-                const somematch = data.match( idekknowanymore );
-                if ( somematch ) {
-                    data = data.replace( `${somematch[0]}`, `
-                        var elem = ${somematch[1]}[${somematch[2]}++];
-                        elem.parentElement.removeChild( elem );
-                    ` );
-                }
+                // const idekknowanymore = /(\w)\[(\w)\+\+].remove\(\)/m;
+                // const somematch = data.match( idekknowanymore );
+                // if ( somematch ) {
+                //     data = data.replace( `${somematch[0]}`, `
+                //         var elem = ${somematch[1]}[${somematch[2]}++];
+                //         elem.parentElement.removeChild( elem );
+                //     ` );
+                // }
 
                 fs.writeFileSync( filePath, data  );
                 
